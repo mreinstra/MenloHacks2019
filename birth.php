@@ -1,5 +1,16 @@
 <!doctype html>
 
+<?php
+$action = $_GET["action"];
+$firstName = $_POST["firstname"];
+$phoneNum = $_POST["phonenumber"];
+
+if($action = "save") {
+  file_put_contents("form_test.txt", [$firstName, $phoneNum]);
+}
+?>
+
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,7 +24,7 @@
 </head>
 
 <body>
-	<form action="http:/httpbin.org/post" method="post">
+	<form action="?action=save" method="post">
   		<br>First name:<br>
   		<input type="text" name="firstname"><br>
   		<br>Phone number:<br>
